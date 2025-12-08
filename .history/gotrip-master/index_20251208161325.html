@@ -123,20 +123,15 @@
             </style>
             <script>
                 let slideIndex = 1;
-let slideTimer;
 
 // Next/previous controls
 function plusSlides(n) {
-  clearTimeout(slideTimer);
   showSlides(slideIndex += n);
-  autoSlides();
 }
 
 // Thumbnail image controls
 function currentSlide(n) {
-  clearTimeout(slideTimer);
   showSlides(slideIndex = n);
-  autoSlides();
 }
 
 function showSlides(n) {
@@ -159,19 +154,9 @@ function showSlides(n) {
   }
 }
 
-// Auto slide function
-function autoSlides() {
-  slideTimer = setTimeout(function() {
-    slideIndex++;
-    showSlides(slideIndex);
-    autoSlides();
-  }, 4000); // Change image every 4 seconds
-}
-
 // Initialize slides when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
   showSlides(slideIndex);
-  autoSlides();
 });
             </script>
    </head>
@@ -303,17 +288,6 @@ document.addEventListener('DOMContentLoaded', function() {
                                 </form>	
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- slider Area End-->
-        
-        <!-- Slideshow Gallery Start -->
-        <div class="slideshow-gallery-area pt-50 pb-50">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
                         <!-- Slideshow container -->
                         <div class="slideshow-container">
 
@@ -344,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </div>
         </div>
-        <!-- Slideshow Gallery End -->
+        <!-- slider Area End-->
         <!-- Our Services Start -->
         <div class="our-services servic-padding">
             <div class="container">
