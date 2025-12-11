@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <style>
-                /* Thiết lập box-sizing để kích thước trở nên dễ dự đoán cho người mới bắt đầu */
+                /* Basic box-sizing to make sizing predictable for a beginner */
                 * { box-sizing: border-box; }
 
             /* -----------------------------
@@ -128,85 +128,63 @@
                 to   { opacity: 1 }
             }
             </style>
-                        <script>
-                                /*
-                                 Script slideshow đơn giản với chế độ tự chạy (autoplay).
+            <script>
+                let slideIndex = 1;
+let slideTimer;
 
-                                 Biến:
-                                     - slideIndex: số chỉ slide hiện tại (bắt đầu từ 1)
-                                     - slideTimer: handle cho timeout của autoplay để có thể dừng/khởi động lại
+// Next/previous controls
+function plusSlides(n) {
+  clearTimeout(slideTimer);
+  showSlides(slideIndex += n);
+  autoSlides();
+}
 
-                                 Hàm:
-                                     - plusSlides(n): tiến hoặc lùi n slide (dùng cho nút prev/next)
-                                     - currentSlide(n): nhảy đến slide thứ n (dùng nếu bạn thêm dot điều hướng)
-                                     - showSlides(n): hàm nội bộ ẩn tất cả slide và hiển thị slide yêu cầu
-                                     - autoSlides(): khởi động vòng lặp tự động đổi slide
+// Thumbnail image controls
+function currentSlide(n) {
+  clearTimeout(slideTimer);
+  showSlides(slideIndex = n);
+  autoSlides();
+}
 
-                                 Ghi chú (dành cho người mới):
-                                     - Để thay đổi tốc độ autoplay, chỉnh số `4000` (milliseconds) trong `autoSlides()`.
-                                     - Để thêm slide, sao chép một khối `.mySlides` trong phần gallery và cập nhật `src` ảnh.
-                                     - Script đợi `DOMContentLoaded` nên sẽ không chạy khi DOM chưa sẵn sàng.
-                                */
+function showSlides(n) {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  if (slides.length > 0) {
+    slides[slideIndex-1].style.display = "block";
+  }
+  if (dots.length > 0) {
+    dots[slideIndex-1].className += " active";
+  }
+}
 
-                                let slideIndex = 1;
-                                let slideTimer;
+// Auto slide function
+function autoSlides() {
+  slideTimer = setTimeout(function() {
+    slideIndex++;
+    showSlides(slideIndex);
+    autoSlides();
+  }, 4000); // Change image every 4 seconds
+}
 
-                                // Next/previous controls
-                                function plusSlides(n) {
-                                        clearTimeout(slideTimer); // stop current autoplay so user action feels immediate
-                                        showSlides(slideIndex += n);
-                                        autoSlides(); // restart autoplay from the new slide
-                                }
-
-                                // Thumbnail / dot controls (if you add dots)
-                                function currentSlide(n) {
-                                        clearTimeout(slideTimer);
-                                        showSlides(slideIndex = n);
-                                        autoSlides();
-                                }
-
-                                // Core function: show the slide for index `n`
-                                function showSlides(n) {
-                                        let i;
-                                        let slides = document.getElementsByClassName("mySlides");
-                                        let dots = document.getElementsByClassName("dot");
-
-                                        if (slides.length === 0) return; // nothing to do
-
-                                        if (n > slides.length) { slideIndex = 1; }
-                                        if (n < 1) { slideIndex = slides.length; }
-
-                                        for (i = 0; i < slides.length; i++) {
-                                                slides[i].style.display = "none"; // hide all slides
-                                        }
-                                        for (i = 0; i < dots.length; i++) {
-                                                dots[i].className = dots[i].className.replace(" active", "");
-                                        }
-
-                                        // show the current slide and highlight the dot (if any)
-                                        slides[slideIndex - 1].style.display = "block";
-                                        if (dots.length > 0) dots[slideIndex - 1].className += " active";
-                                }
-
-                                // Autoplay loop: advance every X ms
-                                function autoSlides() {
-                                        slideTimer = setTimeout(function() {
-                                                slideIndex++;
-                                                showSlides(slideIndex);
-                                                autoSlides();
-                                        }, 4000); // 4000 ms = 4 seconds
-                                }
-
-                                // Initialize slides when DOM is ready
-                                document.addEventListener('DOMContentLoaded', function() {
-                                        showSlides(slideIndex);
-                                        autoSlides();
-                                });
-                        </script>
+// Initialize slides when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  showSlides(slideIndex);
+  autoSlides();
+});
+            </script>
    </head>
 
    <body>
-    <!-- Preloader: biểu tượng tải nhỏ hiển thị khi trang đang nạp tài nguyên. Xóa hoặc điều chỉnh nếu không cần. -->
+    <!-- Preloader Start -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -339,12 +317,6 @@
         <!-- slider Area End-->
         
         <!-- Slideshow Gallery Start -->
-        <!--
-            Hướng dẫn gallery (dành cho người mới):
-            - Để đổi ảnh, thay thuộc tính `src` ở các thẻ `.mySlides img` bên dưới.
-            - Để thêm slide, sao chép một khối `.mySlides` rồi cập nhật ảnh và chú thích.
-            - Để thay đổi tốc độ tự chạy (autoplay), chỉnh số `4000` (ms) trong script ở đầu file.
-        -->
         <div class="slideshow-gallery-area pt-50 pb-50">
             <div class="container">
                 <div class="row">

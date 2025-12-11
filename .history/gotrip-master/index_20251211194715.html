@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <style>
-                /* Thiết lập box-sizing để kích thước trở nên dễ dự đoán cho người mới bắt đầu */
+                /* Basic box-sizing to make sizing predictable for a beginner */
                 * { box-sizing: border-box; }
 
             /* -----------------------------
@@ -130,22 +130,22 @@
             </style>
                         <script>
                                 /*
-                                 Script slideshow đơn giản với chế độ tự chạy (autoplay).
+                                 Simple slideshow script with autoplay.
 
-                                 Biến:
-                                     - slideIndex: số chỉ slide hiện tại (bắt đầu từ 1)
-                                     - slideTimer: handle cho timeout của autoplay để có thể dừng/khởi động lại
+                                 Variables:
+                                     - slideIndex: number (1-based) of current slide
+                                     - slideTimer: handle for the autoplay timeout so we can clear/reset it
 
-                                 Hàm:
-                                     - plusSlides(n): tiến hoặc lùi n slide (dùng cho nút prev/next)
-                                     - currentSlide(n): nhảy đến slide thứ n (dùng nếu bạn thêm dot điều hướng)
-                                     - showSlides(n): hàm nội bộ ẩn tất cả slide và hiển thị slide yêu cầu
-                                     - autoSlides(): khởi động vòng lặp tự động đổi slide
+                                 Functions:
+                                     - plusSlides(n): advance or go back n slides (used by prev/next buttons)
+                                     - currentSlide(n): jump to slide n (useful if you add dots/navigation)
+                                     - showSlides(n): internal function that hides all slides and shows the requested one
+                                     - autoSlides(): starts a timed loop that advances slides automatically
 
-                                 Ghi chú (dành cho người mới):
-                                     - Để thay đổi tốc độ autoplay, chỉnh số `4000` (milliseconds) trong `autoSlides()`.
-                                     - Để thêm slide, sao chép một khối `.mySlides` trong phần gallery và cập nhật `src` ảnh.
-                                     - Script đợi `DOMContentLoaded` nên sẽ không chạy khi DOM chưa sẵn sàng.
+                                 Usage notes for beginners:
+                                     - To change autoplay speed, edit the number `4000` (milliseconds) in `autoSlides()`.
+                                     - To add more slides, duplicate a `.mySlides` div in the slideshow gallery.
+                                     - This script waits for DOMContentLoaded so it won't run before the HTML is parsed.
                                 */
 
                                 let slideIndex = 1;
@@ -206,7 +206,7 @@
    </head>
 
    <body>
-    <!-- Preloader: biểu tượng tải nhỏ hiển thị khi trang đang nạp tài nguyên. Xóa hoặc điều chỉnh nếu không cần. -->
+    <!-- Preloader: small loading indicator shown while page assets load. Remove or adjust if not needed. -->
     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
@@ -340,10 +340,10 @@
         
         <!-- Slideshow Gallery Start -->
         <!--
-            Hướng dẫn gallery (dành cho người mới):
-            - Để đổi ảnh, thay thuộc tính `src` ở các thẻ `.mySlides img` bên dưới.
-            - Để thêm slide, sao chép một khối `.mySlides` rồi cập nhật ảnh và chú thích.
-            - Để thay đổi tốc độ tự chạy (autoplay), chỉnh số `4000` (ms) trong script ở đầu file.
+            Gallery instructions (beginner):
+            - To change the images, replace the `src` attributes in the three `.mySlides img` tags below.
+            - To add more slides, copy one `.mySlides` block and update its image and caption.
+            - To change autoplay speed, edit the number `4000` (milliseconds) in the script at the top of this file.
         -->
         <div class="slideshow-gallery-area pt-50 pb-50">
             <div class="container">

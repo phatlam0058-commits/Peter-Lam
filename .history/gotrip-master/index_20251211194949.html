@@ -23,7 +23,7 @@
         <link rel="stylesheet" href="assets/css/style.css">
 
         <style>
-                /* Thiết lập box-sizing để kích thước trở nên dễ dự đoán cho người mới bắt đầu */
+                /* Basic box-sizing to make sizing predictable for a beginner */
                 * { box-sizing: border-box; }
 
             /* -----------------------------
@@ -130,22 +130,22 @@
             </style>
                         <script>
                                 /*
-                                 Script slideshow đơn giản với chế độ tự chạy (autoplay).
+                                 Simple slideshow script with autoplay.
 
-                                 Biến:
-                                     - slideIndex: số chỉ slide hiện tại (bắt đầu từ 1)
-                                     - slideTimer: handle cho timeout của autoplay để có thể dừng/khởi động lại
+                                 Variables:
+                                     - slideIndex: number (1-based) of current slide
+                                     - slideTimer: handle for the autoplay timeout so we can clear/reset it
 
-                                 Hàm:
-                                     - plusSlides(n): tiến hoặc lùi n slide (dùng cho nút prev/next)
-                                     - currentSlide(n): nhảy đến slide thứ n (dùng nếu bạn thêm dot điều hướng)
-                                     - showSlides(n): hàm nội bộ ẩn tất cả slide và hiển thị slide yêu cầu
-                                     - autoSlides(): khởi động vòng lặp tự động đổi slide
+                                 Functions:
+                                     - plusSlides(n): advance or go back n slides (used by prev/next buttons)
+                                     - currentSlide(n): jump to slide n (useful if you add dots/navigation)
+                                     - showSlides(n): internal function that hides all slides and shows the requested one
+                                     - autoSlides(): starts a timed loop that advances slides automatically
 
-                                 Ghi chú (dành cho người mới):
-                                     - Để thay đổi tốc độ autoplay, chỉnh số `4000` (milliseconds) trong `autoSlides()`.
-                                     - Để thêm slide, sao chép một khối `.mySlides` trong phần gallery và cập nhật `src` ảnh.
-                                     - Script đợi `DOMContentLoaded` nên sẽ không chạy khi DOM chưa sẵn sàng.
+                                 Usage notes for beginners:
+                                     - To change autoplay speed, edit the number `4000` (milliseconds) in `autoSlides()`.
+                                     - To add more slides, duplicate a `.mySlides` div in the slideshow gallery.
+                                     - This script waits for DOMContentLoaded so it won't run before the HTML is parsed.
                                 */
 
                                 let slideIndex = 1;
