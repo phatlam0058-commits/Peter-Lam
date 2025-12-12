@@ -1,0 +1,12 @@
+/* Logo sizing override: increase logo slightly and keep menu vertically centered
+   Change `max-height` to tune the size (px). */
+.logo img, .navbar-brand img, .brand-logo img {
+    max-height: 70px; /* increased from 55px */
+    width: auto;
+    height: auto;
+    display: block;
+}
+
+/* Ensure header logo and menu stay vertically centered in the header */
+.header-bottom .logo { display: flex; align-items: center; }
+.header-bottom .main-menu { display: flex; align-items: center; }

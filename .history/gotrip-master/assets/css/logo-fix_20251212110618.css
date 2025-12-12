@@ -1,0 +1,8 @@
+/* Logo sizing override: keeps new logo same visual height as the old one
+   Adjust `max-height` if you want a smaller/larger logo across the site. */
+.logo img, .navbar-brand img, .brand-logo img {
+    max-height: 55px;
+    width: auto;
+    height: auto;
+    display: block;
+}

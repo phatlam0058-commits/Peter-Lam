@@ -1,0 +1,24 @@
+/*
+    Sửa logo (Tiếng Việt):
+    - File: `assets/css/logo-fix.css`
+    - Selector để chỉnh: `.logo img`, `.navbar-brand img`, `.brand-logo img`
+    - Giá trị `max-height` điều khiển chiều cao tối đa của logo. Nếu muốn logo to hơn/nhỏ hơn,
+        hãy thay `140px` thành số px bạn muốn.
+    - Dòng dưới đảm bảo logo và menu luôn căn giữa theo chiều dọc trong header.
+*/
+.logo img, .navbar-brand img, .brand-logo img {
+        max-height: 140px; /* DOUBLE kích thước: 140px */
+        width: auto;
+        height: auto;
+        display: block;
+}
+
+/* Giữ logo và menu cùng căn giữa (vertical alignment) */
+.header-bottom .logo { display: flex; align-items: center; }
+.header-bottom .main-menu { display: flex; align-items: center; }
+
+/* Ghi chú thêm (nếu cần điều chỉnh responsive):
+     - Bạn có thể thêm media queries để giảm `max-height` trên màn hình nhỏ.
+     Ví dụ:
+         @media (max-width: 767px) { .logo img { max-height: 60px; } }
+*/
